@@ -109,6 +109,10 @@ body {
     border: 2px solid rgba(10, 10, 10, 0.25);
 }
 
+.sidebar-photo.is-hidden {
+    display: none;
+}
+
 .main-content {
     position: relative;
     z-index: 1;
