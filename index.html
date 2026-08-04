@@ -7,26 +7,12 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="page">
+    <div class="sheet">
         <header class="masthead">
             <p class="welcome-text">welcome to my portfolio</p>
         </header>
 
         <main class="columns">
-            <section class="column">
-                <h2 class="category">ABOUT ME</h2>
-                <p class="about-text">
-                    I'm an Analytics student at UC Berkeley with a strong interest in building data-driven applications that bridge backend analysis with intuitive frontend design. I'm passionate about using data and technology to better understand culture, behavior, and social systems. My work spans full-stack web development, statistical modeling, and data visualization, with projects in sports analytics, NLP/sentiment analysis, and political data. I'm especially interested in using data to inform product decisions and build scalable, user-centered technology.
-                </p>
-
-                <h2 class="category">CONTACT</h2>
-                <ul class="contact-list">
-                    <li><a href="https://github.com/anikayadav101" target="_blank" rel="noopener noreferrer">[GITHUB]</a></li>
-                    <li><a href="https://www.linkedin.com/in/anika-yadav-4b1947271/" target="_blank" rel="noopener noreferrer">[LINKEDIN]</a></li>
-                    <li><span class="contact-label">email:</span> <a href="mailto:anika.yadav101@gmail.com">anika.yadav101@gmail.com</a></li>
-                </ul>
-            </section>
-
             <section class="column">
                 <h1 class="section-title">SELECTED WORKS</h1>
                 <h2 class="category">PROJECTS</h2>
@@ -45,7 +31,9 @@
                     <h3 class="work-title">3. Shot Chart Dashboard</h3>
                     <p class="work-description">Interactive NBA shot analytics dashboard that compares player shot-selection profiles with cosine similarity and maps shooting efficiency on a 2D court using hex bins versus league average FG%.</p>
                 </a>
+            </section>
 
+            <section class="column">
                 <a href="https://anikayadav101.github.io/music-bechdel-test/" target="_blank" rel="noopener noreferrer" class="work-item">
                     <h3 class="work-title">4. Music Bechdel Test</h3>
                     <p class="work-description">Interactive tool for analyzing songs through the lens of the Bechdel Test. Search and analyze songs, filter by pass/partial/fail status, and explore statistics about representation in music.</p>
@@ -57,9 +45,30 @@
                 </a>
             </section>
         </main>
+
+        <footer class="bottom-panels">
+            <section class="panel about-panel">
+                <h2 class="panel-title">ABOUT ME</h2>
+                <p class="about-text">
+                    I'm an Analytics student at UC Berkeley with a strong interest in building data-driven applications that bridge backend analysis with intuitive frontend design. I'm passionate about using data and technology to better understand culture, behavior, and social systems. My work spans full-stack web development, statistical modeling, and data visualization, with projects in sports analytics, NLP/sentiment analysis, and political data. I'm especially interested in using data to inform product decisions and build scalable, user-centered technology.
+                </p>
+            </section>
+
+            <section class="panel contact-panel">
+                <h2 class="panel-title">CONTACT</h2>
+                <ul class="contact-list">
+                    <li><a href="https://github.com/anikayadav101" target="_blank" rel="noopener noreferrer">[GITHUB]</a></li>
+                    <li><a href="https://www.linkedin.com/in/anika-yadav-4b1947271/" target="_blank" rel="noopener noreferrer">[LINKEDIN]</a></li>
+                    <li><a href="mailto:anika.yadav101@gmail.com">anika.yadav101@gmail.com</a></li>
+                </ul>
+            </section>
+        </footer>
     </div>
 
-    <div class="pink-overlay" aria-hidden="true"></div>
+    <!-- Hot pink highlight chunk — text remains readable underneath -->
+    <div class="pink-chunk" aria-hidden="true"></div>
+
+    <!-- White name mark (replaces tiger silhouette) -->
     <div class="name-mark" aria-hidden="true">ANIKA<br>YADAV</div>
 </body>
 </html>

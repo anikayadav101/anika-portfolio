@@ -1,9 +1,10 @@
 :root {
-    --beige: #efd9b2;
-    --beige-deep: #e2c291;
+    --beige: #f7d9a7;
     --ink: #0a0a0a;
-    --pink: #f653a2;
-    --pink-deep: #cf3362;
+    --pink: #ff2d8a;
+    --pink-deep: #e0186a;
+    --orange: #f0612e;
+    --teal: #729fa5;
 }
 
 * {
@@ -12,150 +13,192 @@
     box-sizing: border-box;
 }
 
-html {
+html,
+body {
     background-color: var(--beige);
+    min-height: 100vh;
 }
 
 body {
     font-family: 'Times New Roman', Times, Georgia, serif;
-    background-color: var(--beige);
-    background-image:
-        radial-gradient(ellipse at 20% 10%, rgba(226, 194, 145, 0.55) 0%, transparent 55%),
-        radial-gradient(ellipse at 80% 90%, rgba(210, 175, 120, 0.4) 0%, transparent 50%);
     color: var(--ink);
-    min-height: 100vh;
     position: relative;
     overflow-x: hidden;
+    padding: 18px;
 }
 
-/* Content sits under pink wash + name mark */
-.page {
+/* Poster sheet: beige throughout + teal frame */
+.sheet {
     position: relative;
     z-index: 1;
-    max-width: 960px;
+    max-width: 920px;
     margin: 0 auto;
-    padding: 48px 28px 80px;
+    background: var(--beige);
+    border: 3px solid var(--teal);
+    padding: 28px 32px 0;
+    min-height: calc(100vh - 36px);
+    display: flex;
+    flex-direction: column;
 }
 
 .masthead {
     text-align: center;
-    margin-bottom: 36px;
-    padding-bottom: 18px;
-    border-bottom: 2px solid var(--ink);
+    margin-bottom: 22px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--teal);
 }
 
 .welcome-text {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 15px;
-    letter-spacing: 0.12em;
-    text-transform: lowercase;
+    font-size: 14px;
+    letter-spacing: 0.14em;
     color: var(--ink);
 }
 
 .columns {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 40px 48px;
-    align-items: start;
+    gap: 28px 40px;
+    flex: 1;
+    padding-bottom: 28px;
 }
 
 .column {
     min-width: 0;
 }
 
+.section-title,
 .category,
-.section-title {
+.panel-title {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 13px;
     font-weight: 700;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--ink);
-    margin: 0 0 14px;
 }
 
 .section-title {
-    font-size: 15px;
-    margin-bottom: 22px;
+    font-size: 14px;
+    margin-bottom: 16px;
 }
 
 .category {
-    margin-top: 28px;
+    font-size: 12px;
+    margin: 0 0 18px;
 }
 
-.column > .category:first-child,
-.column > .section-title:first-child {
-    margin-top: 0;
+.work-item {
+    display: block;
+    margin: 0 0 22px;
+    color: var(--ink);
+    text-decoration: none;
 }
 
-.about-text,
-.work-description {
-    font-size: 15px;
-    line-height: 1.55;
+.work-item:hover .work-title {
+    text-decoration: underline;
+}
+
+.work-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--ink);
+}
+
+.work-description,
+.about-text {
+    font-size: 14px;
+    line-height: 1.5;
     color: var(--ink);
     text-align: justify;
     hyphens: auto;
 }
 
+/* Bottom orange boxes with teal borders — like the poster footer */
+.bottom-panels {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 0;
+    margin: 0 -32px;
+    border-top: 3px solid var(--teal);
+}
+
+.panel {
+    background: var(--orange);
+    border-right: 3px solid var(--teal);
+    padding: 18px 22px 22px;
+    color: var(--ink);
+}
+
+.panel:last-child {
+    border-right: none;
+}
+
+.panel-title {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.about-text {
+    font-size: 13px;
+    line-height: 1.45;
+}
+
 .contact-list {
     list-style: none;
-    margin-top: 8px;
 }
 
 .contact-list li {
     margin: 8px 0;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 14px;
+    font-size: 13px;
 }
 
-.contact-label {
-    color: var(--ink);
-}
-
-.contact-list a,
-.work-item {
+.contact-list a {
     color: var(--ink);
     text-decoration: none;
 }
 
-.contact-list a:hover,
-.work-item:hover .work-title {
+.contact-list a:hover {
     text-decoration: underline;
 }
 
-.work-item {
-    display: block;
-    margin: 0 0 28px;
-}
-
-.work-title {
-    font-family: 'Times New Roman', Times, Georgia, serif;
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--ink);
-    margin-bottom: 8px;
-}
-
-.work-description {
-    font-size: 14px;
-}
-
 /*
-  Pink highlight wash — translucent magenta over the whole page
-  (multiply keeps beige paper tone + black type readable underneath)
+  Hot pink highlight CHUNK (not full-page wash).
+  Irregular highlighter blob over center/right — multiply keeps
+  beige + black type perfectly readable through the pink.
 */
-.pink-overlay {
+.pink-chunk {
     position: fixed;
-    inset: 0;
     z-index: 2;
     pointer-events: none;
-    background:
-        radial-gradient(ellipse 70% 55% at 50% 42%, rgba(246, 83, 162, 0.72) 0%, rgba(207, 51, 98, 0.38) 55%, rgba(246, 83, 162, 0.22) 100%),
-        rgba(246, 83, 162, 0.28);
+    top: 8%;
+    left: 18%;
+    width: 78%;
+    height: 72%;
+    background: rgba(255, 45, 138, 0.55);
     mix-blend-mode: multiply;
+    /* Hand-cut / screen-print irregular shape */
+    clip-path: polygon(
+        8% 12%,
+        28% 4%,
+        52% 8%,
+        74% 2%,
+        94% 10%,
+        100% 28%,
+        96% 48%,
+        100% 68%,
+        88% 86%,
+        64% 94%,
+        40% 90%,
+        18% 96%,
+        2% 78%,
+        0% 52%,
+        4% 30%
+    );
 }
 
-/* Name mark replaces the panther — white, large, centered over the wash */
+/* Solid white name — same role as the tiger silhouette */
 .name-mark {
     position: fixed;
     inset: 0;
@@ -166,28 +209,52 @@ body {
     justify-content: center;
     text-align: center;
     font-family: Impact, Haettenschweiler, 'Arial Black', sans-serif;
-    font-size: clamp(72px, 18vw, 160px);
+    font-size: clamp(64px, 16vw, 140px);
     font-weight: 900;
-    line-height: 0.9;
-    letter-spacing: 0.02em;
-    color: rgba(255, 255, 255, 0.78);
+    line-height: 0.88;
+    letter-spacing: 0.01em;
+    color: #ffffff;
     text-transform: uppercase;
-    /* Lets black type remain readable through the name, like text under the panther */
-    mix-blend-mode: screen;
+    transform: translate(-6%, 2%) rotate(-4deg);
 }
 
 @media (max-width: 720px) {
-    .page {
-        padding: 32px 18px 64px;
+    body {
+        padding: 10px;
+    }
+
+    .sheet {
+        padding: 20px 16px 0;
+        min-height: calc(100vh - 20px);
     }
 
     .columns {
         grid-template-columns: 1fr;
-        gap: 12px;
+        gap: 8px;
+    }
+
+    .bottom-panels {
+        grid-template-columns: 1fr;
+        margin: 0 -16px;
+    }
+
+    .panel {
+        border-right: none;
+        border-bottom: 3px solid var(--teal);
+    }
+
+    .panel:last-child {
+        border-bottom: none;
     }
 
     .name-mark {
-        font-size: clamp(56px, 22vw, 96px);
+        font-size: clamp(48px, 20vw, 88px);
+    }
+
+    .pink-chunk {
+        left: 6%;
+        width: 92%;
+        height: 68%;
     }
 }
 
@@ -196,13 +263,13 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--beige-deep);
+    background: var(--beige);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(10, 10, 10, 0.35);
+    background: var(--teal);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(10, 10, 10, 0.5);
+    background: var(--ink);
 }
