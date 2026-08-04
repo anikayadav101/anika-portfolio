@@ -65,8 +65,8 @@ html {
     z-index: 1;
     pointer-events: none;
     background:
-        radial-gradient(ellipse 70% 55% at 50% 42%, rgba(130, 130, 130, 0.72) 0%, rgba(165, 165, 165, 0.4) 55%, rgba(200, 200, 200, 0.22) 100%),
-        rgba(185, 185, 185, 0.28);
+        radial-gradient(ellipse 85% 80% at 0% 100%, rgba(130, 130, 130, 0.72) 0%, rgba(165, 165, 165, 0.4) 45%, rgba(200, 200, 200, 0.18) 75%, transparent 100%),
+        rgba(185, 185, 185, 0.2);
     mix-blend-mode: multiply;
 }
 
