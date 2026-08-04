@@ -28,6 +28,30 @@ body {
     overflow-x: hidden;
 }
 
+/* ASCII art integrated as full-page background */
+.ascii-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: url('ascii-bg.png');
+    background-repeat: no-repeat;
+    background-position: center 42%;
+    background-size: cover;
+    opacity: 0.38;
+}
+
+.ascii-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        ellipse 75% 70% at 50% 40%,
+        transparent 25%,
+        rgba(239, 217, 178, 0.25) 100%
+    );
+}
+
 /* Content sits under pink wash + name mark */
 .page {
     position: relative;
