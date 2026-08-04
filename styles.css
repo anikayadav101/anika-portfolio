@@ -87,15 +87,20 @@ body {
 }
 
 .name-mark {
+    position: relative;
+    z-index: 6;
     font-family: Impact, Haettenschweiler, 'Arial Black', sans-serif;
     font-size: clamp(64px, 9vw, 110px);
     font-weight: 900;
     line-height: 0.88;
     letter-spacing: 0.02em;
-    color: rgba(255, 255, 255, 0.72);
+    color: #ffffff;
+    opacity: 0.9;
     text-transform: uppercase;
     text-align: center;
-    mix-blend-mode: screen;
+    /* Keep white from picking up the pink overlay */
+    isolation: isolate;
+    mix-blend-mode: normal;
 }
 
 .main-content {
