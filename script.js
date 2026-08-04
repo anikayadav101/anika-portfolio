@@ -82,39 +82,3 @@
     });
 })();
 
-// Top-right section menu
-(function () {
-    const toggle = document.getElementById('menu-toggle');
-    const menu = document.getElementById('site-menu');
-    if (!toggle || !menu) return;
-
-    function closeMenu() {
-        menu.hidden = true;
-        toggle.setAttribute('aria-expanded', 'false');
-    }
-
-    function openMenu() {
-        menu.hidden = false;
-        toggle.setAttribute('aria-expanded', 'true');
-    }
-
-    toggle.addEventListener('click', () => {
-        if (menu.hidden) openMenu();
-        else closeMenu();
-    });
-
-    menu.querySelectorAll('a').forEach((a) => {
-        a.addEventListener('click', closeMenu);
-    });
-
-    document.addEventListener('click', (e) => {
-        if (menu.hidden) return;
-        if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-            closeMenu();
-        }
-    });
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeMenu();
-    });
-})();

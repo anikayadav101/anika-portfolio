@@ -9,17 +9,19 @@
 <body>
     <div class="ascii-bg" aria-hidden="true"></div>
     <div class="pink-overlay" aria-hidden="true"></div>
-    <button id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Open section menu">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-    <nav id="site-menu" class="site-menu" hidden>
-        <a href="#about">about me</a>
-        <a href="#contact">contact</a>
-        <a href="#selected-works">selected works</a>
-        <a href="#socials">socials</a>
-    </nav>
+    <div class="menu-wrap">
+        <button id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Open section menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="site-menu" class="site-menu" aria-label="Section navigation">
+            <a href="#about">about me</a>
+            <a href="#contact">contact</a>
+            <a href="#selected-works">selected works</a>
+            <a href="#socials">socials</a>
+        </nav>
+    </div>
 
     <div class="page">
         <aside class="sidebar">
@@ -111,15 +113,17 @@
             <footer id="socials" class="socials-footer">
                 <div class="socials-header">
                     <h2 class="category">SOCIALS</h2>
+                </div>
+                <div class="socials-content">
+                    <ul class="socials-list">
+                        <li><a href="https://github.com/anikayadav101" target="_blank" rel="noopener noreferrer">github: github.com/anikayadav101</a></li>
+                        <li><a href="https://rateyourmusic.com/~anikaya" target="_blank" rel="noopener noreferrer">rym: rateyourmusic.com/~anikaya</a></li>
+                        <li><a href="https://www.last.fm/user/axnikaya" target="_blank" rel="noopener noreferrer">lastfm: last.fm/user/axnikaya</a></li>
+                        <li><a href="https://letterboxd.com/tennessewilliam/" target="_blank" rel="noopener noreferrer">letterboxd: letterboxd.com/tennessewilliam</a></li>
+                        <li><a href="https://substack.com/@swagrat21" target="_blank" rel="noopener noreferrer">substack: substack.com/@swagrat21</a></li>
+                    </ul>
                     <img class="socials-logo" src="berkeley-logo.png" alt="UC Berkeley logo">
                 </div>
-                <ul class="socials-list">
-                    <li><a href="https://github.com/anikayadav101" target="_blank" rel="noopener noreferrer">github: github.com/anikayadav101</a></li>
-                    <li><a href="https://rateyourmusic.com/~anikaya" target="_blank" rel="noopener noreferrer">rym: rateyourmusic.com/~anikaya</a></li>
-                    <li><a href="https://www.last.fm/user/axnikaya" target="_blank" rel="noopener noreferrer">lastfm: last.fm/user/axnikaya</a></li>
-                    <li><a href="https://letterboxd.com/tennessewilliam/" target="_blank" rel="noopener noreferrer">letterboxd: letterboxd.com/tennessewilliam</a></li>
-                    <li><a href="https://substack.com/@swagrat21" target="_blank" rel="noopener noreferrer">substack: substack.com/@swagrat21</a></li>
-                </ul>
             </footer>
         </div>
     </div>
