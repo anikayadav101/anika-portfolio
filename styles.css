@@ -97,7 +97,7 @@ html {
 .site-menu {
     position: absolute;
     top: 42px;
-    right: -170px;
+    right: -310px;
     z-index: 31;
     min-width: 220px;
     padding: 4px 0;
@@ -522,7 +522,7 @@ html {
     .site-menu {
         top: 40px;
         min-width: 180px;
-        right: -120px;
+        right: -220px;
     }
 
     .socials-content {
