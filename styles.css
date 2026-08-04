@@ -83,13 +83,9 @@ body {
     font-weight: 900;
     line-height: 0.88;
     letter-spacing: 0.02em;
-    color: #ffffff;
-    opacity: 0.9;
+    color: rgba(255, 255, 255, 0.55);
     text-transform: uppercase;
     text-align: center;
-    /* Keep white from picking up the pink overlay */
-    isolation: isolate;
-    mix-blend-mode: normal;
 }
 
 .main-content {
