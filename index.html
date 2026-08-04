@@ -8,13 +8,38 @@
 </head>
 <body>
     <div class="ascii-bg" aria-hidden="true"></div>
-    <div class="page">
-        <header class="masthead">
-            <p class="welcome-text">welcome to my portfolio</p>
-        </header>
+    <div class="pink-overlay" aria-hidden="true"></div>
 
-        <main class="columns">
-            <section class="column">
+    <div class="page">
+        <aside class="sidebar">
+            <div class="name-mark">ANIKA<br>YADAV</div>
+
+            <!-- Project popup sits under the name -->
+            <aside id="project-popup" class="project-popup" hidden aria-hidden="true">
+                <div class="popup-bar">
+                    <h2 id="popup-title" class="popup-title"></h2>
+                    <div class="popup-actions">
+                        <a id="popup-open" class="popup-open" href="#" target="_blank" rel="noopener noreferrer">[OPEN]</a>
+                        <button type="button" id="popup-close" class="popup-close" aria-label="Close project preview">[X]</button>
+                    </div>
+                </div>
+                <p id="popup-desc" class="popup-desc"></p>
+                <div class="popup-frame-wrap">
+                    <iframe id="popup-frame" class="popup-frame" title="Project preview" loading="lazy"></iframe>
+                    <div id="popup-card" class="popup-card" hidden>
+                        <p id="popup-card-note" class="popup-card-note"></p>
+                        <a id="popup-card-link" class="popup-card-link" href="#" target="_blank" rel="noopener noreferrer">Open full project →</a>
+                    </div>
+                </div>
+            </aside>
+        </aside>
+
+        <div class="main-content">
+            <header class="masthead">
+                <p class="welcome-text">welcome to my portfolio</p>
+            </header>
+
+            <section class="about-block">
                 <h2 class="category">ABOUT ME</h2>
                 <p class="about-text">
                     I'm an Analytics student at UC Berkeley with a strong interest in building data-driven applications that bridge backend analysis with intuitive frontend design. I'm passionate about using data and technology to better understand culture, behavior, and social systems. My work spans full-stack web development, statistical modeling, and data visualization, with projects in sports analytics, NLP/sentiment analysis, and political data. I'm especially interested in using data to inform product decisions and build scalable, user-centered technology.
@@ -28,7 +53,7 @@
                 </ul>
             </section>
 
-            <section class="column">
+            <section class="works-block">
                 <h1 class="section-title">SELECTED WORKS</h1>
                 <h2 class="category">PROJECTS</h2>
 
@@ -73,30 +98,8 @@
                     <p class="work-description">Photo booth-style web app that uses Google MediaPipe hand and pose tracking to detect mudras and body pointing in real time, then identifies the matching chakra with color-coded overlays and educational info.</p>
                 </button>
             </section>
-        </main>
+        </div>
     </div>
-
-    <div class="pink-overlay" aria-hidden="true"></div>
-    <div class="name-mark" aria-hidden="true">ANIKA<br>YADAV</div>
-
-    <!-- Bottom-left project popup -->
-    <aside id="project-popup" class="project-popup" hidden aria-hidden="true">
-        <div class="popup-bar">
-            <h2 id="popup-title" class="popup-title"></h2>
-            <div class="popup-actions">
-                <a id="popup-open" class="popup-open" href="#" target="_blank" rel="noopener noreferrer">[OPEN]</a>
-                <button type="button" id="popup-close" class="popup-close" aria-label="Close project preview">[X]</button>
-            </div>
-        </div>
-        <p id="popup-desc" class="popup-desc"></p>
-        <div class="popup-frame-wrap">
-            <iframe id="popup-frame" class="popup-frame" title="Project preview" loading="lazy"></iframe>
-            <div id="popup-card" class="popup-card" hidden>
-                <p id="popup-card-note" class="popup-card-note"></p>
-                <a id="popup-card-link" class="popup-card-link" href="#" target="_blank" rel="noopener noreferrer">Open full project →</a>
-            </div>
-        </div>
-    </aside>
 
     <script src="script.js"></script>
 </body>

@@ -4,6 +4,7 @@
     --ink: #0a0a0a;
     --pink: #f653a2;
     --pink-deep: #cf3362;
+    --sidebar-w: min(340px, 34vw);
 }
 
 * {
@@ -28,7 +29,6 @@ body {
     overflow-x: hidden;
 }
 
-/* ASCII art integrated as full-page background */
 .ascii-bg {
     position: fixed;
     inset: 0;
@@ -52,19 +52,59 @@ body {
     );
 }
 
-/* Content sits under pink wash + name mark */
+.pink-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 70% 55% at 50% 42%, rgba(246, 83, 162, 0.72) 0%, rgba(207, 51, 98, 0.38) 55%, rgba(246, 83, 162, 0.22) 100%),
+        rgba(246, 83, 162, 0.28);
+    mix-blend-mode: multiply;
+}
+
+/* Left name + popup | Right about + projects */
 .page {
     position: relative;
     z-index: 1;
-    max-width: 960px;
+    display: grid;
+    grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
+    gap: 28px 36px;
+    max-width: 1180px;
     margin: 0 auto;
-    padding: 48px 28px 80px;
+    padding: 36px 24px 64px;
+    align-items: start;
+}
+
+.sidebar {
+    position: sticky;
+    top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    z-index: 5;
+}
+
+.name-mark {
+    font-family: Impact, Haettenschweiler, 'Arial Black', sans-serif;
+    font-size: clamp(48px, 7vw, 84px);
+    font-weight: 900;
+    line-height: 0.88;
+    letter-spacing: 0.02em;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+}
+
+.main-content {
+    position: relative;
+    z-index: 1;
+    min-width: 0;
 }
 
 .masthead {
-    text-align: center;
-    margin-bottom: 36px;
-    padding-bottom: 18px;
+    margin-bottom: 28px;
+    padding-bottom: 14px;
     border-bottom: 2px solid var(--ink);
 }
 
@@ -77,15 +117,12 @@ body {
     color: var(--ink);
 }
 
-.columns {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px 48px;
-    align-items: start;
+.about-block {
+    margin-bottom: 36px;
 }
 
-.column {
-    min-width: 0;
+.works-block .category {
+    margin-top: 0;
 }
 
 .category,
@@ -101,15 +138,14 @@ body {
 
 .section-title {
     font-size: 16px;
-    margin-bottom: 22px;
+    margin-bottom: 10px;
 }
 
 .category {
     margin-top: 28px;
 }
 
-.column > .category:first-child,
-.column > .section-title:first-child {
+.about-block > .category:first-child {
     margin-top: 0;
 }
 
@@ -174,55 +210,16 @@ body {
     font-size: 15px;
 }
 
-/*
-  Pink highlight wash — translucent magenta over the whole page
-  (multiply keeps beige paper tone + black type readable underneath)
-*/
-.pink-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 2;
-    pointer-events: none;
-    background:
-        radial-gradient(ellipse 70% 55% at 50% 42%, rgba(246, 83, 162, 0.72) 0%, rgba(207, 51, 98, 0.38) 55%, rgba(246, 83, 162, 0.22) 100%),
-        rgba(246, 83, 162, 0.28);
-    mix-blend-mode: multiply;
-}
-
-/* Name mark replaces the panther — white, large, centered over the wash */
-.name-mark {
-    position: fixed;
-    inset: 0;
-    z-index: 3;
-    pointer-events: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-family: Impact, Haettenschweiler, 'Arial Black', sans-serif;
-    font-size: clamp(72px, 18vw, 160px);
-    font-weight: 900;
-    line-height: 0.9;
-    letter-spacing: 0.02em;
-    color: rgba(255, 255, 255, 0.78);
-    text-transform: uppercase;
-    mix-blend-mode: screen;
-}
-
-/* Bottom-left project popup tab */
+/* Popup under ANIKA YADAV in the left sidebar */
 .project-popup {
-    position: fixed;
-    left: 16px;
-    bottom: 16px;
-    z-index: 20;
-    width: min(520px, calc(100vw - 32px));
-    height: min(580px, calc(100vh - 32px));
+    width: 100%;
+    height: min(420px, 55vh);
     display: flex;
     flex-direction: column;
     background: var(--beige);
     border: 3px solid var(--ink);
     box-shadow: 6px 6px 0 rgba(10, 10, 10, 0.25);
-    transform: translateY(18px);
+    transform: translateY(12px);
     opacity: 0;
     pointer-events: none;
     transition: transform 0.2s ease, opacity 0.2s ease;
@@ -244,7 +241,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
+    gap: 10px;
     padding: 10px 12px;
     border-bottom: 2px solid var(--ink);
     background: rgba(246, 83, 162, 0.25);
@@ -252,7 +249,7 @@ body {
 
 .popup-title {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 800;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -294,7 +291,7 @@ body {
     padding: 8px 12px;
     margin: 0;
     border-bottom: 1px solid rgba(10, 10, 10, 0.2);
-    max-height: 72px;
+    max-height: 64px;
     overflow: auto;
 }
 
@@ -323,15 +320,15 @@ body {
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    gap: 16px;
-    padding: 28px 22px 32px;
+    gap: 14px;
+    padding: 22px 18px 26px;
     background: var(--beige);
     color: var(--ink);
 }
 
 .popup-card-note {
     margin: 0;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     line-height: 1.5;
 }
@@ -339,11 +336,11 @@ body {
 .popup-card-link {
     display: inline-block;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 800;
     color: var(--ink);
     text-decoration: none;
-    padding: 10px 14px;
+    padding: 10px 12px;
     border: 3px solid var(--ink);
     background: rgba(246, 83, 162, 0.35);
 }
@@ -352,30 +349,23 @@ body {
     background: rgba(246, 83, 162, 0.55);
 }
 
-@media (max-width: 720px) {
+@media (max-width: 860px) {
     .page {
-        padding: 32px 18px 64px;
+        grid-template-columns: 1fr;
+        padding: 28px 18px 56px;
+        gap: 20px;
     }
 
-    .columns {
-        grid-template-columns: 1fr;
-        gap: 12px;
+    .sidebar {
+        position: static;
     }
 
     .name-mark {
-        font-size: clamp(56px, 22vw, 96px);
+        font-size: clamp(52px, 14vw, 72px);
     }
 
     .project-popup {
-        left: 8px;
-        right: 8px;
-        bottom: 8px;
-        width: auto;
-        height: min(70vh, 560px);
-    }
-
-    .project-popup.is-card {
-        height: auto;
+        height: min(380px, 50vh);
     }
 }
 
