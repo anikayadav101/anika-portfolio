@@ -2,7 +2,10 @@
     --beige: #f0d7a8;
     --beige-deep: #e4c48e;
     --ink: #111111;
-    --pink: #ff1f8f;
+    --hot-pink: #ff1493;
+    --hot-pink-bright: #ff2db8;
+    --neon-orange: #f0612e;
+    --teal: #729fa5;
 }
 
 * {
@@ -32,7 +35,6 @@ body {
     pointer-events: none;
     background-color: var(--beige);
     background-image:
-        /* fiber / fold streaks */
         repeating-linear-gradient(
             90deg,
             rgba(120, 90, 40, 0.035) 0px,
@@ -50,7 +52,6 @@ body {
         radial-gradient(ellipse at 50% 40%, #f6e2b8 0%, var(--beige) 55%, var(--beige-deep) 100%);
 }
 
-/* Speckle grain */
 .paper::before {
     content: '';
     position: absolute;
@@ -61,24 +62,24 @@ body {
     mix-blend-mode: multiply;
 }
 
-/* Sheer hot-pink rectangle over most of the page */
-.pink-rect {
+/* Hot-pink rain canvas — sheer matrix over most of the page */
+#pink-rain {
     position: fixed;
+    top: 5%;
+    left: 6%;
+    width: 88%;
+    height: 86%;
     z-index: 2;
     pointer-events: none;
-    top: 6%;
-    left: 7%;
-    width: 86%;
-    height: 84%;
-    background: rgba(255, 31, 143, 0.42);
-    mix-blend-mode: multiply;
+    /* Soft hot-pink wash behind the rain (true hot pink, not salmon) */
+    background: rgba(255, 20, 147, 0.28);
 }
 
-/* Centered sheer white name — body type stays readable through it */
+/* Crisp white name — no blend with pink, for contrast */
 .name-mark {
     position: fixed;
     inset: 0;
-    z-index: 3;
+    z-index: 4;
     pointer-events: none;
     display: flex;
     align-items: center;
@@ -90,7 +91,11 @@ body {
     line-height: 0.88;
     letter-spacing: 0.02em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.48);
+    color: #ffffff;
+    opacity: 0.82;
+    /* Keep white from picking up pink */
+    mix-blend-mode: normal;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.9);
 }
 
 .page {
@@ -154,6 +159,20 @@ body {
     color: var(--ink);
 }
 
+/* Neon orange contact box — poster footer color + bold teal border */
+.contact-box {
+    position: relative;
+    z-index: 5;
+    margin-top: 28px;
+    padding: 16px 18px 18px;
+    background: var(--neon-orange);
+    border: 4px solid var(--teal);
+}
+
+.contact-box .category {
+    margin-top: 0;
+}
+
 .contact-list {
     list-style: none;
     margin-top: 4px;
@@ -207,11 +226,11 @@ body {
         gap: 8px;
     }
 
-    .pink-rect {
-        top: 4%;
-        left: 4%;
-        width: 92%;
-        height: 90%;
+    #pink-rain {
+        top: 3%;
+        left: 3%;
+        width: 94%;
+        height: 92%;
     }
 
     .name-mark {
