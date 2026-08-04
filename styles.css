@@ -55,7 +55,7 @@ body {
 .pink-overlay {
     position: fixed;
     inset: 0;
-    z-index: 2;
+    z-index: 1;
     pointer-events: none;
     background:
         radial-gradient(ellipse 70% 55% at 50% 42%, rgba(246, 83, 162, 0.72) 0%, rgba(207, 51, 98, 0.38) 55%, rgba(246, 83, 162, 0.22) 100%),
@@ -66,7 +66,7 @@ body {
 /* Left name + popup | Right about + projects */
 .page {
     position: relative;
-    z-index: 1;
+    z-index: 3;
     display: grid;
     grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
     gap: 28px 36px;
@@ -97,6 +97,8 @@ body {
     color: rgba(255, 255, 255, 0.55);
     text-transform: uppercase;
     text-align: center;
+    /* Sit above pink wash; keep white sheer without pink tint */
+    isolation: isolate;
 }
 
 .main-content {
@@ -215,12 +217,14 @@ body {
 
 /* Popup under ANIKA YADAV in the left sidebar */
 .project-popup {
+    position: relative;
+    z-index: 6;
     width: 100%;
     max-width: 460px;
     height: min(460px, 58vh);
     display: flex;
     flex-direction: column;
-    background: var(--beige);
+    background: #efd9b2;
     border: 3px solid var(--ink);
     box-shadow: 6px 6px 0 rgba(10, 10, 10, 0.25);
     transform: translateY(12px);
@@ -228,6 +232,7 @@ body {
     pointer-events: none;
     transition: transform 0.2s ease, opacity 0.2s ease;
     overflow: hidden;
+    isolation: isolate;
 }
 
 .project-popup.is-open {
