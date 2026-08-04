@@ -11,6 +11,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
 }
 
 html {
@@ -242,7 +245,8 @@ html {
     line-height: 1.6;
     color: var(--ink);
     text-align: justify;
-    hyphens: auto;
+    overflow-wrap: normal;
+    word-break: normal;
 }
 
 .contact-list {
