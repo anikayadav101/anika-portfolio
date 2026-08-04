@@ -1,10 +1,8 @@
 :root {
-    --beige: #edd6a4;
-    --beige-dark: #dfc28c;
-    --ink: #000000;
-    --hot-pink: #ff1493;
-    --neon-orange: #ef752f;
-    --teal: #6fa8a8;
+    --beige: #f0d7a8;
+    --beige-deep: #e4c48e;
+    --ink: #111111;
+    --pink: #ff1f8f;
 }
 
 * {
@@ -15,127 +13,70 @@
 
 html,
 body {
-    background: #c9a86a;
     min-height: 100vh;
+    background: var(--beige);
 }
 
 body {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, Georgia, serif;
     color: var(--ink);
-    padding: 10px;
-}
-
-/* Flyer page — newspaper beige + teal frame */
-.flyer {
     position: relative;
-    max-width: 780px;
-    margin: 0 auto;
-    background: var(--beige);
-    border: 2.5px solid var(--teal);
-    min-height: calc(100vh - 20px);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+    overflow-x: hidden;
 }
 
-/* Gritty newsprint texture */
-.flyer::before {
-    content: '';
-    position: absolute;
+/* Gritty newspaper beige paper */
+.paper {
+    position: fixed;
     inset: 0;
     z-index: 0;
     pointer-events: none;
+    background-color: var(--beige);
     background-image:
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E"),
+        /* fiber / fold streaks */
+        repeating-linear-gradient(
+            90deg,
+            rgba(120, 90, 40, 0.035) 0px,
+            rgba(120, 90, 40, 0.035) 1px,
+            transparent 1px,
+            transparent 7px
+        ),
         repeating-linear-gradient(
             0deg,
-            transparent 0,
-            transparent 3px,
-            rgba(60, 35, 0, 0.035) 3px,
-            rgba(60, 35, 0, 0.035) 4px
-        );
-    background-size: 180px 180px, auto;
-    mix-blend-mode: multiply;
-    opacity: 0.55;
+            rgba(90, 60, 20, 0.03) 0px,
+            rgba(90, 60, 20, 0.03) 1px,
+            transparent 1px,
+            transparent 9px
+        ),
+        radial-gradient(ellipse at 50% 40%, #f6e2b8 0%, var(--beige) 55%, var(--beige-deep) 100%);
 }
 
-/*
-  Hot pink paint block — large irregular chunk over most of the page.
-  Multiply keeps black type readable (poster highlighter look).
-  Not salmon: true hot pink #ff1493.
-*/
-.pink-layer {
+/* Speckle grain */
+.paper::before {
+    content: '';
     position: absolute;
+    inset: 0;
+    opacity: 0.45;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.25 0 0 0 0 0.1 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+    mix-blend-mode: multiply;
+}
+
+/* Sheer hot-pink rectangle over most of the page */
+.pink-rect {
+    position: fixed;
     z-index: 2;
     pointer-events: none;
-    top: 3%;
-    left: 4%;
-    width: 93%;
-    height: 74%;
-    /* Irregular / torn paint-splash silhouette with dripping bottom */
-    clip-path: polygon(
-        2% 4%,
-        18% 1%,
-        36% 5%,
-        52% 0%,
-        71% 3%,
-        88% 1%,
-        98% 8%,
-        100% 22%,
-        97% 38%,
-        100% 52%,
-        96% 66%,
-        99% 78%,
-        90% 88%,
-        78% 94%,
-        68% 86%,
-        58% 96%,
-        48% 90%,
-        40% 100%,
-        32% 92%,
-        24% 100%,
-        16% 91%,
-        8% 98%,
-        1% 86%,
-        0% 70%,
-        3% 52%,
-        0% 34%,
-        4% 18%
-    );
-}
-
-.pink-fill {
-    position: absolute;
-    inset: 0;
-    background: rgba(255, 20, 147, 0.52);
+    top: 6%;
+    left: 7%;
+    width: 86%;
+    height: 84%;
+    background: rgba(255, 31, 143, 0.42);
     mix-blend-mode: multiply;
 }
 
-/* Vertical “raining” ink texture inside the pink (poster glitch/drip) */
-.pink-rain {
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-        90deg,
-        rgba(200, 0, 100, 0.28) 0px,
-        rgba(200, 0, 100, 0.28) 1px,
-        transparent 1px,
-        transparent 5px
-    );
-    mix-blend-mode: multiply;
-    opacity: 0.85;
-    animation: rain-drift 8s linear infinite;
-}
-
-@keyframes rain-drift {
-    from { background-position: 0 0; }
-    to { background-position: 0 40px; }
-}
-
-/* Pure white name — knock-out, no pink mix */
+/* Centered sheer white name — body type stays readable through it */
 .name-mark {
-    position: absolute;
+    position: fixed;
     inset: 0;
     z-index: 3;
     pointer-events: none;
@@ -143,154 +84,149 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-family: Impact, Haettenschweiler, 'Arial Black', sans-serif;
-    font-size: clamp(72px, 16vw, 138px);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', 'Arial Black', sans-serif;
+    font-size: clamp(70px, 17vw, 150px);
     font-weight: 900;
-    line-height: 0.82;
-    letter-spacing: 0;
+    line-height: 0.88;
+    letter-spacing: 0.02em;
     text-transform: uppercase;
-    color: #fff;
-    transform: translate(0%, -6%);
+    color: rgba(255, 255, 255, 0.48);
 }
 
-.masthead,
-.columns,
-.footer-boxes {
+.page {
     position: relative;
     z-index: 1;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 40px 36px 72px;
 }
 
 .masthead {
-    padding: 14px 18px 10px;
-}
-
-.flyer-title {
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-    color: var(--ink);
-    margin-bottom: 4px;
+    text-align: center;
+    margin-bottom: 28px;
+    padding-bottom: 14px;
+    border-bottom: 1.5px solid var(--ink);
 }
 
 .welcome-text {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 12px;
+    font-size: 15px;
+    letter-spacing: 0.08em;
     color: var(--ink);
 }
 
 .columns {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px 24px;
-    padding: 8px 18px 20px;
-    flex: 1;
-    column-rule: none;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.35fr);
+    gap: 48px;
+    align-items: start;
 }
 
-.heading {
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 12px;
-    font-weight: 800;
+.category,
+.section-title {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    letter-spacing: 0.02em;
     color: var(--ink);
-    margin: 14px 0 5px;
+    margin: 0 0 14px;
 }
 
-.column > .heading:first-child {
+.section-title {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.category {
+    margin-top: 32px;
+}
+
+.column-left > .category:first-child,
+.column-right > .section-title:first-child {
     margin-top: 0;
 }
 
-.body-text {
-    font-size: 12px;
-    line-height: 1.35;
-    text-align: justify;
+.about-text,
+.work-description {
+    font-size: 14px;
+    line-height: 1.55;
     color: var(--ink);
-    margin-bottom: 2px;
-    hyphens: auto;
 }
 
-.body-text a {
-    color: var(--ink);
+.contact-list {
+    list-style: none;
+    margin-top: 4px;
+}
+
+.contact-list li {
+    margin: 8px 0;
     font-family: 'Courier New', Courier, monospace;
-    font-weight: 700;
+    font-size: 13px;
+}
+
+.contact-label {
+    color: var(--ink);
+}
+
+.contact-list a,
+.work-item {
+    color: var(--ink);
     text-decoration: none;
 }
 
-.body-text a:hover {
+.contact-list a:hover,
+.work-item:hover .work-title {
     text-decoration: underline;
 }
 
-/* Neon orange boxes + thick BLACK borders (poster footer) */
-.footer-boxes {
-    display: grid;
-    grid-template-columns: 1.15fr 1fr;
-    border-top: 5px solid #000;
-    margin-top: auto;
-    position: relative;
-    z-index: 4;
+.work-item {
+    display: block;
+    margin: 0 0 24px;
 }
 
-.orange-box {
-    background: var(--neon-orange);
-    border-right: 5px solid #000;
-    padding: 12px 14px 14px;
-}
-
-.orange-box:last-child {
-    border-right: none;
-}
-
-.box-title {
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 12px;
-    font-weight: 800;
-    text-transform: uppercase;
+.work-title {
+    font-size: 16px;
+    font-weight: 700;
     margin-bottom: 6px;
     color: var(--ink);
 }
 
-.box-text {
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 12px;
-    line-height: 1.4;
-    font-weight: 700;
-    color: var(--ink);
+.work-description {
+    font-size: 13.5px;
+    line-height: 1.5;
 }
 
-.box-text a {
-    color: var(--ink);
-    text-decoration: none;
-}
+@media (max-width: 720px) {
+    .page {
+        padding: 28px 18px 56px;
+    }
 
-.box-text a:hover {
-    text-decoration: underline;
-}
-
-@media (max-width: 640px) {
-    body { padding: 4px; }
-
-    .columns,
-    .footer-boxes {
+    .columns {
         grid-template-columns: 1fr;
+        gap: 8px;
     }
 
-    .orange-box {
-        border-right: none;
-        border-bottom: 5px solid #000;
-    }
-
-    .orange-box:last-child {
-        border-bottom: none;
-    }
-
-    .pink-layer {
-        height: 70%;
+    .pink-rect {
+        top: 4%;
+        left: 4%;
+        width: 92%;
+        height: 90%;
     }
 
     .name-mark {
-        font-size: clamp(52px, 18vw, 92px);
+        font-size: clamp(52px, 20vw, 96px);
     }
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--beige-deep);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(17, 17, 17, 0.35);
 }
