@@ -101,6 +101,18 @@ body {
     isolation: isolate;
 }
 
+.sidebar-art {
+    width: 100%;
+    max-width: 460px;
+    height: auto;
+    display: block;
+    opacity: 0.95;
+}
+
+.sidebar-art.is-hidden {
+    display: none;
+}
+
 .main-content {
     position: relative;
     z-index: 1;
@@ -370,6 +382,10 @@ body {
         width: 100%;
         max-width: none;
         height: min(400px, 52vh);
+    }
+
+    .sidebar-art {
+        max-width: none;
     }
 }
 

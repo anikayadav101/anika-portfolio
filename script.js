@@ -2,6 +2,7 @@
 // GitHub Pages projects embed in an iframe; Streamlit (and other hosts that block framing) get an in-page card.
 (function () {
     const popup = document.getElementById('project-popup');
+    const sidebarArt = document.getElementById('sidebar-art');
     const titleEl = document.getElementById('popup-title');
     const frame = document.getElementById('popup-frame');
     const openLink = document.getElementById('popup-open');
@@ -51,6 +52,7 @@
         popup.hidden = false;
         popup.setAttribute('aria-hidden', 'false');
         popup.classList.add('is-open');
+        if (sidebarArt) sidebarArt.classList.add('is-hidden');
     }
 
     function closePopup() {
@@ -62,6 +64,7 @@
                 popup.hidden = true;
                 frame.src = 'about:blank';
                 popup.classList.remove('is-card');
+                if (sidebarArt) sidebarArt.classList.remove('is-hidden');
             }
         }, 220);
     }
