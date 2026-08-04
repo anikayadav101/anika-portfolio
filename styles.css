@@ -101,17 +101,12 @@ body {
     isolation: isolate;
 }
 
-.sidebar-art {
-    width: auto;
-    max-width: 100%;
+.sidebar-photo {
+    width: min(100%, 460px);
     height: auto;
     display: block;
-    opacity: 0.95;
     object-fit: contain;
-}
-
-.sidebar-art.is-hidden {
-    display: none;
+    border: 2px solid rgba(10, 10, 10, 0.25);
 }
 
 .main-content {
@@ -385,9 +380,10 @@ body {
         height: min(400px, 52vh);
     }
 
-    .sidebar-art {
-        max-width: none;
+    .sidebar-photo {
+        width: 100%;
     }
+
 }
 
 ::-webkit-scrollbar {
