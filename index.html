@@ -9,6 +9,17 @@
 <body>
     <div class="ascii-bg" aria-hidden="true"></div>
     <div class="pink-overlay" aria-hidden="true"></div>
+    <button id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Open section menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <nav id="site-menu" class="site-menu" hidden>
+        <a href="#about">about me</a>
+        <a href="#contact">contact</a>
+        <a href="#selected-works">selected works</a>
+        <a href="#socials">socials</a>
+    </nav>
 
     <div class="page">
         <aside class="sidebar">
@@ -39,13 +50,13 @@
                 <p class="welcome-text">welcome to my portfolio</p>
             </header>
 
-            <section class="about-block">
+            <section id="about" class="about-block">
                 <h2 class="category">ABOUT ME</h2>
                 <p class="about-text">
                     I'm an Analytics student at UC Berkeley with a strong interest in building data-driven applications that bridge backend analysis with intuitive frontend design. I'm passionate about using data and technology to better understand culture, behavior, and social systems. My work spans full-stack web development, statistical modeling, and data visualization, with projects in sports analytics, NLP/sentiment analysis, and political data. I'm especially interested in using data to inform product decisions and build scalable, user-centered technology.
                 </p>
 
-                <h2 class="category">CONTACT</h2>
+                <h2 id="contact" class="category">CONTACT</h2>
                 <ul class="contact-list">
                     <li><a href="https://github.com/anikayadav101" target="_blank" rel="noopener noreferrer">[GITHUB]</a></li>
                     <li><a href="https://www.linkedin.com/in/anika-yadav-4b1947271/" target="_blank" rel="noopener noreferrer">[LINKEDIN]</a></li>
@@ -53,7 +64,7 @@
                 </ul>
             </section>
 
-            <section class="works-block">
+            <section id="selected-works" class="works-block">
                 <h1 class="section-title">SELECTED WORKS</h1>
                 <button type="button" class="work-item"
                     data-title="1. Listening Map"
@@ -97,9 +108,13 @@
                 </button>
             </section>
 
-            <footer class="socials-footer">
-                <h2 class="category">SOCIALS</h2>
+            <footer id="socials" class="socials-footer">
+                <div class="socials-header">
+                    <h2 class="category">SOCIALS</h2>
+                    <img class="socials-logo" src="berkeley-logo.png" alt="UC Berkeley logo">
+                </div>
                 <ul class="socials-list">
+                    <li><a href="https://github.com/anikayadav101" target="_blank" rel="noopener noreferrer">github: github.com/anikayadav101</a></li>
                     <li><a href="https://rateyourmusic.com/~anikaya" target="_blank" rel="noopener noreferrer">rym: rateyourmusic.com/~anikaya</a></li>
                     <li><a href="https://www.last.fm/user/axnikaya" target="_blank" rel="noopener noreferrer">lastfm: last.fm/user/axnikaya</a></li>
                     <li><a href="https://letterboxd.com/tennessewilliam/" target="_blank" rel="noopener noreferrer">letterboxd: letterboxd.com/tennessewilliam</a></li>
