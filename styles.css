@@ -227,6 +227,33 @@ body {
     font-size: 15px;
 }
 
+.socials-footer {
+    margin-top: 10px;
+    padding-top: 6px;
+    border-top: 2px solid rgba(10, 10, 10, 0.2);
+}
+
+.socials-list {
+    list-style: none;
+    margin-top: 8px;
+}
+
+.socials-list li {
+    margin: 8px 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.socials-list a {
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.socials-list a:hover {
+    text-decoration: underline;
+}
+
 /* Popup under ANIKA YADAV in the left sidebar */
 .project-popup {
     position: relative;
