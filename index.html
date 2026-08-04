@@ -7,64 +7,61 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="paper" aria-hidden="true"></div>
-    <canvas id="pink-rain" aria-hidden="true"></canvas>
-    <div class="name-mark" aria-hidden="true">ANIKA<br>YADAV</div>
+    <article class="flyer">
+        <!-- Poster pink paint splash + vertical rain texture -->
+        <div class="pink-layer" aria-hidden="true">
+            <div class="pink-fill"></div>
+            <div class="pink-rain"></div>
+        </div>
 
-    <div class="page">
+        <!-- White knock-out name (stands in for the panther) -->
+        <div class="name-mark" aria-hidden="true">ANIKA<br>YADAV</div>
+
         <header class="masthead">
+            <h1 class="flyer-title">ANIKA YADAV PORTFOLIO</h1>
             <p class="welcome-text">welcome to my portfolio</p>
         </header>
 
         <main class="columns">
-            <aside class="column column-left">
-                <h2 class="category">ABOUT ME</h2>
-                <p class="about-text">
+            <section class="column">
+                <h2 class="heading">WHAT I DO / WHAT I BUILD</h2>
+                <p class="body-text">
                     I'm an Analytics student at UC Berkeley with a strong interest in building data-driven applications that bridge backend analysis with intuitive frontend design. I'm passionate about using data and technology to better understand culture, behavior, and social systems. My work spans full-stack web development, statistical modeling, and data visualization, with projects in sports analytics, NLP/sentiment analysis, and political data. I'm especially interested in using data to inform product decisions and build scalable, user-centered technology.
                 </p>
 
-                <section class="contact-box">
-                    <h2 class="category">CONTACT</h2>
-                    <ul class="contact-list">
-                        <li><a href="https://github.com/anikayadav101" target="_blank" rel="noopener noreferrer">[GITHUB]</a></li>
-                        <li><a href="https://www.linkedin.com/in/anika-yadav-4b1947271/" target="_blank" rel="noopener noreferrer">[LINKEDIN]</a></li>
-                        <li><span class="contact-label">email:</span> <a href="mailto:anika.yadav101@gmail.com">anika.yadav101@gmail.com</a></li>
-                    </ul>
-                </section>
-            </aside>
+                <h2 class="heading">1. Listening Map</h2>
+                <p class="body-text">Interactive world map that visualizes where your favorite artists are from. Connect with Last.fm to discover the geographic origins of your music listening activity. <a href="https://anikayadav101.github.io/listening-activity-map/" target="_blank" rel="noopener noreferrer">[VIEW]</a></p>
 
-            <section class="column column-right">
-                <h1 class="section-title">SELECTED WORKS</h1>
-                <h2 class="category">PROJECTS</h2>
+                <h2 class="heading">2. NBA Hype Index</h2>
+                <p class="body-text">Comprehensive leaderboard comparing social media sentiment (Hype) against on-court performance for NBA players. Features BERT-based sentiment analysis from Reddit discussions and normalized performance metrics. Data on 5,095+ players. <a href="https://anikayadav101.github.io/nbahypeindex/" target="_blank" rel="noopener noreferrer">[VIEW]</a></p>
 
-                <a href="https://anikayadav101.github.io/listening-activity-map/" target="_blank" rel="noopener noreferrer" class="work-item">
-                    <h3 class="work-title">1. Listening Map</h3>
-                    <p class="work-description">Interactive world map that visualizes where your favorite artists are from. Connect with Last.fm to discover the geographic origins of your music listening activity.</p>
-                </a>
+                <h2 class="heading">3. Shot Chart Dashboard</h2>
+                <p class="body-text">Interactive NBA shot analytics dashboard that compares player shot-selection profiles with cosine similarity and maps shooting efficiency on a 2D court using hex bins versus league average FG%. <a href="https://shot-chart-dashboard.streamlit.app" target="_blank" rel="noopener noreferrer">[VIEW]</a></p>
+            </section>
 
-                <a href="https://anikayadav101.github.io/nbahypeindex/" target="_blank" rel="noopener noreferrer" class="work-item">
-                    <h3 class="work-title">2. NBA Hype Index</h3>
-                    <p class="work-description">Comprehensive leaderboard comparing social media sentiment (Hype) against on-court performance for NBA players. Features BERT-based sentiment analysis from Reddit discussions and normalized performance metrics. Data on 5,095+ players.</p>
-                </a>
+            <section class="column">
+                <h2 class="heading">4. Music Bechdel Test</h2>
+                <p class="body-text">Interactive tool for analyzing songs through the lens of the Bechdel Test. Search and analyze songs, filter by pass/partial/fail status, and explore statistics about representation in music. <a href="https://anikayadav101.github.io/music-bechdel-test/" target="_blank" rel="noopener noreferrer">[VIEW]</a></p>
 
-                <a href="https://shot-chart-dashboard.streamlit.app" target="_blank" rel="noopener noreferrer" class="work-item">
-                    <h3 class="work-title">3. Shot Chart Dashboard</h3>
-                    <p class="work-description">Interactive NBA shot analytics dashboard that compares player shot-selection profiles with cosine similarity and maps shooting efficiency on a 2D court using hex bins versus league average FG%.</p>
-                </a>
-
-                <a href="https://anikayadav101.github.io/music-bechdel-test/" target="_blank" rel="noopener noreferrer" class="work-item">
-                    <h3 class="work-title">4. Music Bechdel Test</h3>
-                    <p class="work-description">Interactive tool for analyzing songs through the lens of the Bechdel Test. Search and analyze songs, filter by pass/partial/fail status, and explore statistics about representation in music.</p>
-                </a>
-
-                <a href="https://anikayadav101.github.io/chakra-scan/" target="_blank" rel="noopener noreferrer" class="work-item">
-                    <h3 class="work-title">5. Chakra Scan</h3>
-                    <p class="work-description">Photo booth-style web app that uses Google MediaPipe hand and pose tracking to detect mudras and body pointing in real time, then identifies the matching chakra with color-coded overlays and educational info.</p>
-                </a>
+                <h2 class="heading">5. Chakra Scan</h2>
+                <p class="body-text">Photo booth-style web app that uses Google MediaPipe hand and pose tracking to detect mudras and body pointing in real time, then identifies the matching chakra with color-coded overlays and educational info. <a href="https://anikayadav101.github.io/chakra-scan/" target="_blank" rel="noopener noreferrer">[VIEW]</a></p>
             </section>
         </main>
-    </div>
 
-    <script src="script.js"></script>
+        <footer class="footer-boxes">
+            <div class="orange-box">
+                <h2 class="box-title">About</h2>
+                <p class="box-text">Analytics student, UC Berkeley.<br>Data · product · culture · systems.</p>
+            </div>
+            <div class="orange-box">
+                <h2 class="box-title">Contact</h2>
+                <p class="box-text">
+                    <a href="https://github.com/anikayadav101" target="_blank" rel="noopener noreferrer">GitHub</a><br>
+                    <a href="https://www.linkedin.com/in/anika-yadav-4b1947271/" target="_blank" rel="noopener noreferrer">LinkedIn</a><br>
+                    <a href="mailto:anika.yadav101@gmail.com">anika.yadav101@gmail.com</a>
+                </p>
+            </div>
+        </footer>
+    </article>
 </body>
 </html>
