@@ -176,16 +176,16 @@ body {
     mix-blend-mode: screen;
 }
 
-/* Lotus graphic — bottom left corner */
+/* Lotus water stamp — bottom left corner */
 .lotus-corner {
     position: fixed;
-    left: 12px;
-    bottom: 12px;
-    width: min(220px, 42vw);
+    left: 8px;
+    bottom: 8px;
+    width: min(200px, 40vw);
     height: auto;
     z-index: 4;
     pointer-events: none;
-    image-rendering: auto;
+    display: block;
 }
 
 @media (max-width: 720px) {
