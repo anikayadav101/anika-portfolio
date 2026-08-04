@@ -102,11 +102,12 @@ body {
 }
 
 .sidebar-art {
-    width: 100%;
-    max-width: 460px;
+    width: auto;
+    max-width: 100%;
     height: auto;
     display: block;
     opacity: 0.95;
+    object-fit: contain;
 }
 
 .sidebar-art.is-hidden {
