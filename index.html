@@ -51,6 +51,7 @@
                 <button type="button" class="work-item"
                     data-title="3. Shot Chart Dashboard"
                     data-url="https://shot-chart-dashboard.streamlit.app"
+                    data-embed="false"
                     data-desc="Interactive NBA shot analytics dashboard that compares player shot-selection profiles with cosine similarity and maps shooting efficiency on a 2D court using hex bins versus league average FG%.">
                     <h3 class="work-title">3. Shot Chart Dashboard</h3>
                     <p class="work-description">Interactive NBA shot analytics dashboard that compares player shot-selection profiles with cosine similarity and maps shooting efficiency on a 2D court using hex bins versus league average FG%.</p>
@@ -90,9 +91,9 @@
         <p id="popup-desc" class="popup-desc"></p>
         <div class="popup-frame-wrap">
             <iframe id="popup-frame" class="popup-frame" title="Project preview" loading="lazy"></iframe>
-            <div id="popup-fallback" class="popup-fallback" hidden>
-                <p>Preview blocked by the live site — open it in a new tab instead.</p>
-                <a id="popup-fallback-link" href="#" target="_blank" rel="noopener noreferrer">Open full project →</a>
+            <div id="popup-card" class="popup-card" hidden>
+                <p id="popup-card-note" class="popup-card-note"></p>
+                <a id="popup-card-link" class="popup-card-link" href="#" target="_blank" rel="noopener noreferrer">Open full project →</a>
             </div>
         </div>
     </aside>

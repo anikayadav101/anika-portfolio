@@ -1,60 +1,71 @@
 // Bottom-left project popup
+// GitHub Pages projects embed in an iframe; Streamlit (and other hosts that block framing) get an in-page card.
 (function () {
     const popup = document.getElementById('project-popup');
     const titleEl = document.getElementById('popup-title');
     const descEl = document.getElementById('popup-desc');
     const frame = document.getElementById('popup-frame');
     const openLink = document.getElementById('popup-open');
-    const fallback = document.getElementById('popup-fallback');
-    const fallbackLink = document.getElementById('popup-fallback-link');
+    const card = document.getElementById('popup-card');
+    const cardNote = document.getElementById('popup-card-note');
+    const cardLink = document.getElementById('popup-card-link');
     const closeBtn = document.getElementById('popup-close');
     const items = document.querySelectorAll('.work-item');
 
-    let loadTimer = null;
+    function canEmbed(url, explicit) {
+        if (explicit === 'false') return false;
+        if (explicit === 'true') return true;
+        try {
+            const host = new URL(url).hostname;
+            // Streamlit Cloud apps generally refuse / break inside iframes
+            if (host.endsWith('streamlit.app') || host.includes('share.streamlit.io')) {
+                return false;
+            }
+            return true;
+        } catch (_) {
+            return false;
+        }
+    }
 
     function openPopup(item) {
         const title = item.dataset.title || '';
         const url = item.dataset.url || '';
         const desc = item.dataset.desc || '';
+        const embed = canEmbed(url, item.dataset.embed);
 
         titleEl.textContent = title;
         descEl.textContent = desc;
         openLink.href = url;
-        fallbackLink.href = url;
+        cardLink.href = url;
 
-        fallback.hidden = true;
-        frame.hidden = false;
-        frame.src = url;
+        if (embed) {
+            popup.classList.remove('is-card');
+            card.hidden = true;
+            frame.hidden = false;
+            frame.src = url;
+        } else {
+            popup.classList.add('is-card');
+            frame.hidden = true;
+            frame.src = 'about:blank';
+            card.hidden = false;
+            cardNote.textContent =
+                'This project runs on Streamlit, which doesn’t allow in-page previews. Open it in a new tab to use the full dashboard.';
+        }
 
         popup.hidden = false;
         popup.setAttribute('aria-hidden', 'false');
         popup.classList.add('is-open');
-        document.body.classList.add('popup-open');
-
-        // If the site blocks iframes, show fallback after a short wait
-        clearTimeout(loadTimer);
-        loadTimer = setTimeout(() => {
-            try {
-                // Cross-origin frames throw on contentDocument access — expected.
-                // We still keep the iframe; fallback is a soft hint for blocked embeds.
-                void frame.contentWindow;
-            } catch (_) {
-                /* ignore */
-            }
-        }, 2500);
     }
 
     function closePopup() {
-        clearTimeout(loadTimer);
         popup.classList.remove('is-open');
         popup.setAttribute('aria-hidden', 'true');
-        document.body.classList.remove('popup-open');
 
-        // Clear iframe after close animation
         setTimeout(() => {
             if (!popup.classList.contains('is-open')) {
                 popup.hidden = true;
                 frame.src = 'about:blank';
+                popup.classList.remove('is-card');
             }
         }, 220);
     }
@@ -69,11 +80,5 @@
         if (e.key === 'Escape' && popup.classList.contains('is-open')) {
             closePopup();
         }
-    });
-
-    // Soft fallback when iframe fails to load
-    frame.addEventListener('error', () => {
-        frame.hidden = true;
-        fallback.hidden = false;
     });
 })();
