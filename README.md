@@ -6,6 +6,7 @@ A modern, responsive portfolio website showcasing personal projects and skills.
 
 1. **Music Bechdel Test** - An interactive tool for analyzing songs through the lens of the Bechdel Test
 2. **NBA Hype Index** - A comprehensive leaderboard comparing social media sentiment against on-court performance for NBA players
+3. **Chakra Scan** - Photo booth-style MediaPipe app that detects mudras and body pointing to identify chakras
 
 ## Features
 
