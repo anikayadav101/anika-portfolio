@@ -38,7 +38,7 @@ body {
     background-repeat: no-repeat;
     background-position: center 42%;
     background-size: cover;
-    opacity: 0.38;
+    opacity: 0.16;
 }
 
 .ascii-bg::after {
@@ -70,7 +70,8 @@ body {
 
 .welcome-text {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 15px;
+    font-size: 16px;
+    font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: lowercase;
     color: var(--ink);
@@ -90,8 +91,8 @@ body {
 .category,
 .section-title {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 13px;
-    font-weight: 700;
+    font-size: 14px;
+    font-weight: 800;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--ink);
@@ -99,7 +100,7 @@ body {
 }
 
 .section-title {
-    font-size: 15px;
+    font-size: 16px;
     margin-bottom: 22px;
 }
 
@@ -114,8 +115,9 @@ body {
 
 .about-text,
 .work-description {
-    font-size: 15px;
-    line-height: 1.55;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.6;
     color: var(--ink);
     text-align: justify;
     hyphens: auto;
@@ -129,7 +131,8 @@ body {
 .contact-list li {
     margin: 8px 0;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: 700;
 }
 
 .contact-label {
@@ -154,14 +157,14 @@ body {
 
 .work-title {
     font-family: 'Times New Roman', Times, Georgia, serif;
-    font-size: 17px;
-    font-weight: 700;
+    font-size: 19px;
+    font-weight: 800;
     color: var(--ink);
     margin-bottom: 8px;
 }
 
 .work-description {
-    font-size: 14px;
+    font-size: 15px;
 }
 
 /*
@@ -200,18 +203,6 @@ body {
     mix-blend-mode: screen;
 }
 
-/* Lotus water stamp — bottom left corner */
-.lotus-corner {
-    position: fixed;
-    left: 8px;
-    bottom: 8px;
-    width: min(200px, 40vw);
-    height: auto;
-    z-index: 4;
-    pointer-events: none;
-    display: block;
-}
-
 @media (max-width: 720px) {
     .page {
         padding: 32px 18px 64px;
@@ -226,11 +217,6 @@ body {
         font-size: clamp(56px, 22vw, 96px);
     }
 
-    .lotus-corner {
-        width: min(150px, 38vw);
-        left: 6px;
-        bottom: 6px;
-    }
 }
 
 ::-webkit-scrollbar {
