@@ -3,7 +3,6 @@
 (function () {
     const popup = document.getElementById('project-popup');
     const titleEl = document.getElementById('popup-title');
-    const descEl = document.getElementById('popup-desc');
     const frame = document.getElementById('popup-frame');
     const openLink = document.getElementById('popup-open');
     const card = document.getElementById('popup-card');
@@ -17,7 +16,6 @@
         if (explicit === 'true') return true;
         try {
             const host = new URL(url).hostname;
-            // Streamlit Cloud apps generally refuse / break inside iframes
             if (host.endsWith('streamlit.app') || host.includes('share.streamlit.io')) {
                 return false;
             }
@@ -30,11 +28,9 @@
     function openPopup(item) {
         const title = item.dataset.title || '';
         const url = item.dataset.url || '';
-        const desc = item.dataset.desc || '';
         const embed = canEmbed(url, item.dataset.embed);
 
         titleEl.textContent = title;
-        descEl.textContent = desc;
         openLink.href = url;
         cardLink.href = url;
 
