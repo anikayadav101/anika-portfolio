@@ -1,8 +1,9 @@
 :root {
-    --beige: #f0d7a8;
-    --beige-deep: #e4c48e;
-    --ink: #111111;
-    --pink: #ff1f8f;
+    --beige: #efd9b2;
+    --beige-deep: #e2c291;
+    --ink: #0a0a0a;
+    --pink: #f653a2;
+    --pink-deep: #cf3362;
 }
 
 * {
@@ -11,158 +12,100 @@
     box-sizing: border-box;
 }
 
-html,
-body {
-    min-height: 100vh;
-    background: var(--beige);
+html {
+    background-color: var(--beige);
 }
 
 body {
     font-family: 'Times New Roman', Times, Georgia, serif;
+    background-color: var(--beige);
+    background-image:
+        radial-gradient(ellipse at 20% 10%, rgba(226, 194, 145, 0.55) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 90%, rgba(210, 175, 120, 0.4) 0%, transparent 50%);
     color: var(--ink);
+    min-height: 100vh;
     position: relative;
     overflow-x: hidden;
 }
 
-/* Gritty newspaper beige paper */
-.paper {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    background-color: var(--beige);
-    background-image:
-        /* fiber / fold streaks */
-        repeating-linear-gradient(
-            90deg,
-            rgba(120, 90, 40, 0.035) 0px,
-            rgba(120, 90, 40, 0.035) 1px,
-            transparent 1px,
-            transparent 7px
-        ),
-        repeating-linear-gradient(
-            0deg,
-            rgba(90, 60, 20, 0.03) 0px,
-            rgba(90, 60, 20, 0.03) 1px,
-            transparent 1px,
-            transparent 9px
-        ),
-        radial-gradient(ellipse at 50% 40%, #f6e2b8 0%, var(--beige) 55%, var(--beige-deep) 100%);
-}
-
-/* Speckle grain */
-.paper::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    opacity: 0.45;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.25 0 0 0 0 0.1 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    background-size: 180px 180px;
-    mix-blend-mode: multiply;
-}
-
-/* Sheer hot-pink rectangle over most of the page */
-.pink-rect {
-    position: fixed;
-    z-index: 2;
-    pointer-events: none;
-    top: 6%;
-    left: 7%;
-    width: 86%;
-    height: 84%;
-    background: rgba(255, 31, 143, 0.42);
-    mix-blend-mode: multiply;
-}
-
-/* Centered sheer white name — body type stays readable through it */
-.name-mark {
-    position: fixed;
-    inset: 0;
-    z-index: 3;
-    pointer-events: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', 'Arial Black', sans-serif;
-    font-size: clamp(70px, 17vw, 150px);
-    font-weight: 900;
-    line-height: 0.88;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.48);
-}
-
+/* Content sits under pink wash + name mark */
 .page {
     position: relative;
     z-index: 1;
-    max-width: 980px;
+    max-width: 960px;
     margin: 0 auto;
-    padding: 40px 36px 72px;
+    padding: 48px 28px 80px;
 }
 
 .masthead {
     text-align: center;
-    margin-bottom: 28px;
-    padding-bottom: 14px;
-    border-bottom: 1.5px solid var(--ink);
+    margin-bottom: 36px;
+    padding-bottom: 18px;
+    border-bottom: 2px solid var(--ink);
 }
 
 .welcome-text {
     font-family: 'Courier New', Courier, monospace;
     font-size: 15px;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.12em;
+    text-transform: lowercase;
     color: var(--ink);
 }
 
 .columns {
     display: grid;
-    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.35fr);
-    gap: 48px;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 48px;
     align-items: start;
+}
+
+.column {
+    min-width: 0;
 }
 
 .category,
 .section-title {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--ink);
     margin: 0 0 14px;
 }
 
 .section-title {
-    font-size: 16px;
-    margin-bottom: 20px;
+    font-size: 15px;
+    margin-bottom: 22px;
 }
 
 .category {
-    margin-top: 32px;
+    margin-top: 28px;
 }
 
-.column-left > .category:first-child,
-.column-right > .section-title:first-child {
+.column > .category:first-child,
+.column > .section-title:first-child {
     margin-top: 0;
 }
 
 .about-text,
 .work-description {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.55;
     color: var(--ink);
+    text-align: justify;
+    hyphens: auto;
 }
 
 .contact-list {
     list-style: none;
-    margin-top: 4px;
+    margin-top: 8px;
 }
 
 .contact-list li {
     margin: 8px 0;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .contact-label {
@@ -182,40 +125,69 @@ body {
 
 .work-item {
     display: block;
-    margin: 0 0 24px;
+    margin: 0 0 28px;
 }
 
 .work-title {
-    font-size: 16px;
+    font-family: 'Times New Roman', Times, Georgia, serif;
+    font-size: 17px;
     font-weight: 700;
-    margin-bottom: 6px;
     color: var(--ink);
+    margin-bottom: 8px;
 }
 
 .work-description {
-    font-size: 13.5px;
-    line-height: 1.5;
+    font-size: 14px;
+}
+
+/*
+  Pink highlight wash — translucent magenta over the whole page
+  (multiply keeps beige paper tone + black type readable underneath)
+*/
+.pink-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 70% 55% at 50% 42%, rgba(246, 83, 162, 0.72) 0%, rgba(207, 51, 98, 0.38) 55%, rgba(246, 83, 162, 0.22) 100%),
+        rgba(246, 83, 162, 0.28);
+    mix-blend-mode: multiply;
+}
+
+/* Name mark replaces the panther — white, large, centered over the wash */
+.name-mark {
+    position: fixed;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Black', sans-serif;
+    font-size: clamp(72px, 18vw, 160px);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+    color: rgba(255, 255, 255, 0.78);
+    text-transform: uppercase;
+    /* Lets black type remain readable through the name, like text under the panther */
+    mix-blend-mode: screen;
 }
 
 @media (max-width: 720px) {
     .page {
-        padding: 28px 18px 56px;
+        padding: 32px 18px 64px;
     }
 
     .columns {
         grid-template-columns: 1fr;
-        gap: 8px;
-    }
-
-    .pink-rect {
-        top: 4%;
-        left: 4%;
-        width: 92%;
-        height: 90%;
+        gap: 12px;
     }
 
     .name-mark {
-        font-size: clamp(52px, 20vw, 96px);
+        font-size: clamp(56px, 22vw, 96px);
     }
 }
 
@@ -228,5 +200,9 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(17, 17, 17, 0.35);
+    background: rgba(10, 10, 10, 0.35);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(10, 10, 10, 0.5);
 }
