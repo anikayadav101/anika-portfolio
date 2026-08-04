@@ -152,7 +152,14 @@ body {
 
 .work-item {
     display: block;
+    width: 100%;
     margin: 0 0 28px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+    font: inherit;
 }
 
 .work-title {
@@ -199,8 +206,128 @@ body {
     letter-spacing: 0.02em;
     color: rgba(255, 255, 255, 0.78);
     text-transform: uppercase;
-    /* Lets black type remain readable through the name, like text under the panther */
     mix-blend-mode: screen;
+}
+
+/* Bottom-left project popup tab */
+.project-popup {
+    position: fixed;
+    left: 16px;
+    bottom: 16px;
+    z-index: 20;
+    width: min(440px, calc(100vw - 32px));
+    height: min(520px, calc(100vh - 32px));
+    display: flex;
+    flex-direction: column;
+    background: var(--beige);
+    border: 3px solid var(--ink);
+    box-shadow: 6px 6px 0 rgba(10, 10, 10, 0.25);
+    transform: translateY(18px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    overflow: hidden;
+}
+
+.project-popup.is-open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.popup-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 12px;
+    border-bottom: 2px solid var(--ink);
+    background: rgba(246, 83, 162, 0.25);
+}
+
+.popup-title {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.popup-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.popup-open,
+.popup-close {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--ink);
+    text-decoration: none;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    padding: 0;
+}
+
+.popup-open:hover,
+.popup-close:hover {
+    text-decoration: underline;
+}
+
+.popup-desc {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--ink);
+    padding: 8px 12px;
+    margin: 0;
+    border-bottom: 1px solid rgba(10, 10, 10, 0.2);
+    max-height: 72px;
+    overflow: auto;
+}
+
+.popup-frame-wrap {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    background: #fff;
+}
+
+.popup-frame {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    background: #fff;
+}
+
+.popup-fallback {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 20px;
+    text-align: center;
+    background: var(--beige);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.popup-fallback a {
+    color: var(--ink);
+    font-weight: 800;
 }
 
 @media (max-width: 720px) {
@@ -217,6 +344,13 @@ body {
         font-size: clamp(56px, 22vw, 96px);
     }
 
+    .project-popup {
+        left: 8px;
+        right: 8px;
+        bottom: 8px;
+        width: auto;
+        height: min(62vh, 480px);
+    }
 }
 
 ::-webkit-scrollbar {

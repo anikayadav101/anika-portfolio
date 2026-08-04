@@ -32,35 +32,71 @@
                 <h1 class="section-title">SELECTED WORKS</h1>
                 <h2 class="category">PROJECTS</h2>
 
-                <a href="https://anikayadav101.github.io/listening-activity-map/" target="_blank" rel="noopener noreferrer" class="work-item">
+                <button type="button" class="work-item"
+                    data-title="1. Listening Map"
+                    data-url="https://anikayadav101.github.io/listening-activity-map/"
+                    data-desc="Interactive world map that visualizes where your favorite artists are from. Connect with Last.fm to discover the geographic origins of your music listening activity.">
                     <h3 class="work-title">1. Listening Map</h3>
                     <p class="work-description">Interactive world map that visualizes where your favorite artists are from. Connect with Last.fm to discover the geographic origins of your music listening activity.</p>
-                </a>
+                </button>
 
-                <a href="https://anikayadav101.github.io/nbahypeindex/" target="_blank" rel="noopener noreferrer" class="work-item">
+                <button type="button" class="work-item"
+                    data-title="2. NBA Hype Index"
+                    data-url="https://anikayadav101.github.io/nbahypeindex/"
+                    data-desc="Comprehensive leaderboard comparing social media sentiment (Hype) against on-court performance for NBA players. Features BERT-based sentiment analysis from Reddit discussions and normalized performance metrics. Data on 5,095+ players.">
                     <h3 class="work-title">2. NBA Hype Index</h3>
                     <p class="work-description">Comprehensive leaderboard comparing social media sentiment (Hype) against on-court performance for NBA players. Features BERT-based sentiment analysis from Reddit discussions and normalized performance metrics. Data on 5,095+ players.</p>
-                </a>
+                </button>
 
-                <a href="https://shot-chart-dashboard.streamlit.app" target="_blank" rel="noopener noreferrer" class="work-item">
+                <button type="button" class="work-item"
+                    data-title="3. Shot Chart Dashboard"
+                    data-url="https://shot-chart-dashboard.streamlit.app"
+                    data-desc="Interactive NBA shot analytics dashboard that compares player shot-selection profiles with cosine similarity and maps shooting efficiency on a 2D court using hex bins versus league average FG%.">
                     <h3 class="work-title">3. Shot Chart Dashboard</h3>
                     <p class="work-description">Interactive NBA shot analytics dashboard that compares player shot-selection profiles with cosine similarity and maps shooting efficiency on a 2D court using hex bins versus league average FG%.</p>
-                </a>
+                </button>
 
-                <a href="https://anikayadav101.github.io/music-bechdel-test/" target="_blank" rel="noopener noreferrer" class="work-item">
+                <button type="button" class="work-item"
+                    data-title="4. Music Bechdel Test"
+                    data-url="https://anikayadav101.github.io/music-bechdel-test/"
+                    data-desc="Interactive tool for analyzing songs through the lens of the Bechdel Test. Search and analyze songs, filter by pass/partial/fail status, and explore statistics about representation in music.">
                     <h3 class="work-title">4. Music Bechdel Test</h3>
                     <p class="work-description">Interactive tool for analyzing songs through the lens of the Bechdel Test. Search and analyze songs, filter by pass/partial/fail status, and explore statistics about representation in music.</p>
-                </a>
+                </button>
 
-                <a href="https://anikayadav101.github.io/chakra-scan/" target="_blank" rel="noopener noreferrer" class="work-item">
+                <button type="button" class="work-item"
+                    data-title="5. Chakra Scan"
+                    data-url="https://anikayadav101.github.io/chakra-scan/"
+                    data-desc="Photo booth-style web app that uses Google MediaPipe hand and pose tracking to detect mudras and body pointing in real time, then identifies the matching chakra with color-coded overlays and educational info.">
                     <h3 class="work-title">5. Chakra Scan</h3>
                     <p class="work-description">Photo booth-style web app that uses Google MediaPipe hand and pose tracking to detect mudras and body pointing in real time, then identifies the matching chakra with color-coded overlays and educational info.</p>
-                </a>
+                </button>
             </section>
         </main>
     </div>
 
     <div class="pink-overlay" aria-hidden="true"></div>
     <div class="name-mark" aria-hidden="true">ANIKA<br>YADAV</div>
+
+    <!-- Bottom-left project popup -->
+    <aside id="project-popup" class="project-popup" hidden aria-hidden="true">
+        <div class="popup-bar">
+            <h2 id="popup-title" class="popup-title"></h2>
+            <div class="popup-actions">
+                <a id="popup-open" class="popup-open" href="#" target="_blank" rel="noopener noreferrer">[OPEN]</a>
+                <button type="button" id="popup-close" class="popup-close" aria-label="Close project preview">[X]</button>
+            </div>
+        </div>
+        <p id="popup-desc" class="popup-desc"></p>
+        <div class="popup-frame-wrap">
+            <iframe id="popup-frame" class="popup-frame" title="Project preview" loading="lazy"></iframe>
+            <div id="popup-fallback" class="popup-fallback" hidden>
+                <p>Preview blocked by the live site — open it in a new tab instead.</p>
+                <a id="popup-fallback-link" href="#" target="_blank" rel="noopener noreferrer">Open full project →</a>
+            </div>
+        </div>
+    </aside>
+
+    <script src="script.js"></script>
 </body>
 </html>
