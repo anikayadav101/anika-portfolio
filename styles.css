@@ -214,24 +214,14 @@ html {
     margin-top: 0;
 }
 
-.category,
-.section-title {
+.category {
     font-family: 'Courier New', Courier, monospace;
     font-size: 14px;
     font-weight: 800;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--ink);
-    margin: 0 0 14px;
-}
-
-.section-title {
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-.category {
-    margin-top: 28px;
+    margin: 28px 0 14px;
 }
 
 .about-block > .category:first-child {
